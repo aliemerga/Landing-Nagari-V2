@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+<<<<<<< HEAD
 import { FileText, Download, Calendar, Info, AlertTriangle, Clock, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
@@ -108,16 +109,124 @@ export function PPIDPage() {
     {
       category: "Layanan Publik",
       items: informasiSetiapSaat.filter(p => p.slug.startsWith('layanan-')),
+=======
+import { FileText, Download, Calendar, Info, AlertTriangle, Clock } from "lucide-react";
+
+export function PPIDPage() {
+  const informasiBerkala = [
+    {
+      title: "Laporan Penyelenggaraan Pemerintahan Nagari (LPPN) 2023",
+      description: "Laporan tahunan penyelenggaraan pemerintahan nagari tahun 2023",
+      date: "Januari 2024",
+      type: "PDF",
+      size: "2.5 MB"
+    },
+    {
+      title: "Laporan Keuangan Nagari 2023",
+      description: "Laporan realisasi anggaran pendapatan dan belanja nagari 2023",
+      date: "Januari 2024",
+      type: "PDF",
+      size: "1.8 MB"
+    },
+    {
+      title: "Data Profil Nagari 2024",
+      description: "Data demografi, geografis, dan sosial ekonomi nagari terkini",
+      date: "Maret 2024",
+      type: "PDF",
+      size: "3.2 MB"
+    },
+    {
+      title: "Rencana Pembangunan Jangka Menengah Nagari (RPJMNagari)",
+      description: "Dokumen perencanaan pembangunan nagari periode 2022-2028",
+      date: "Februari 2022",
+      type: "PDF",
+      size: "4.1 MB"
+    }
+  ];
+
+  const informasiSertaMerta = [
+    {
+      title: "Pengumuman Hasil Seleksi Program Bantuan Sosial",
+      description: "Daftar penerima bantuan sosial tahun 2024",
+      date: "15 September 2024",
+      urgent: true
+    },
+    {
+      title: "Pemberitahuan Perubahan Jadwal Pelayanan",
+      description: "Perubahan jam pelayanan selama bulan Ramadan",
+      date: "10 September 2024",
+      urgent: false
+    },
+    {
+      title: "Peringatan Bencana Alam - Cuaca Ekstrem",
+      description: "Himbauan kewaspadaan menghadapi cuaca ekstrem",
+      date: "8 September 2024",
+      urgent: true
+    }
+  ];
+
+  const informasiSetiapSaat = [
+    {
+      category: "Profil Nagari",
+      items: [
+        "Sejarah Nagari",
+        "Visi dan Misi",
+        "Struktur Organisasi",
+        "Profil Pimpinan",
+        "Data Demografi"
+      ]
+    },
+    {
+      category: "Peraturan dan Kebijakan",
+      items: [
+        "Peraturan Nagari",
+        "Keputusan Wali Nagari",
+        "Standar Operasional Prosedur (SOP)",
+        "Pedoman Pelayanan"
+      ]
+    },
+    {
+      category: "Layanan Publik",
+      items: [
+        "Prosedur Pelayanan Surat",
+        "Tarif dan Biaya Layanan",
+        "Waktu Penyelesaian",
+        "Formulir Permohonan",
+        "Persyaratan Layanan"
+      ]
+    },
+    {
+      category: "Keuangan",
+      items: [
+        "APBN Nagari",
+        "Realisasi Anggaran",
+        "Laporan Keuangan Bulanan",
+        "Rencana Kegiatan dan Anggaran (RKA)"
+      ]
+    },
+    {
+      category: "Program dan Kegiatan",
+      items: [
+        "Program Pembangunan",
+        "Kegiatan Pemberdayaan Masyarakat",
+        "Program Bantuan Sosial",
+        "Jadwal Kegiatan"
+      ]
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
     }
   ];
 
   return (
+<<<<<<< HEAD
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gray-50"
     >
+=======
+    <div className="min-h-screen bg-gray-50">
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -172,6 +281,7 @@ export function PPIDPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
+<<<<<<< HEAD
               {loading.berkala ? (
                 <div className="flex justify-center items-center py-8">
                   <Loader2 className="h-6 w-6 animate-spin text-gray-500" />
@@ -204,6 +314,31 @@ export function PPIDPage() {
                   ))}
                 </div>
               )}
+=======
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {informasiBerkala.map((item, index) => (
+                  <Card key={index} className="border border-gray-200">
+                    <CardContent className="p-4">
+                      <div className="flex justify-between items-start mb-2">
+                        <h4 className="font-semibold text-sm">{item.title}</h4>
+                        <Badge variant="outline">{item.type}</Badge>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">{item.description}</p>
+                      <div className="flex justify-between items-center">
+                        <div className="text-xs text-gray-500">
+                          <p>{item.date}</p>
+                          <p>{item.size}</p>
+                        </div>
+                        <Button size="sm" variant="outline">
+                          <Download className="h-4 w-4 mr-1" />
+                          Unduh
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
             </CardContent>
           </Card>
 
@@ -216,6 +351,7 @@ export function PPIDPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
+<<<<<<< HEAD
               {loading.sertaMerta ? (
                 <div className="flex justify-center items-center py-8">
                   <Loader2 className="h-6 w-6 animate-spin text-gray-500" />
@@ -249,6 +385,32 @@ export function PPIDPage() {
                   ))}
                 </div>
               )}
+=======
+              <div className="space-y-4">
+                {informasiSertaMerta.map((item, index) => (
+                  <div key={index} className="flex items-start justify-between p-4 border border-gray-200 rounded-lg">
+                    <div className="flex-1">
+                      <div className="flex items-center mb-1">
+                        <h4 className="font-semibold">{item.title}</h4>
+                        {item.urgent && (
+                          <Badge variant="destructive" className="ml-2 text-xs">
+                            Penting
+                          </Badge>
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+                      <div className="flex items-center text-xs text-gray-500">
+                        <Calendar className="h-3 w-3 mr-1" />
+                        {item.date}
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm">
+                      Lihat Detail
+                    </Button>
+                  </div>
+                ))}
+              </div>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
             </CardContent>
           </Card>
 
@@ -261,6 +423,7 @@ export function PPIDPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
+<<<<<<< HEAD
               {loading.setiapSaat ? (
                 <div className="flex justify-center items-center py-8">
                   <Loader2 className="h-6 w-6 animate-spin text-gray-500" />
@@ -291,6 +454,29 @@ export function PPIDPage() {
                   ))}
                 </Accordion>
               )}
+=======
+              <Accordion type="single" collapsible className="w-full">
+                {informasiSetiapSaat.map((category, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">
+                      {category.category}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {category.items.map((item, itemIndex) => (
+                          <div key={itemIndex} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <span className="text-sm">{item}</span>
+                            <Button variant="ghost" size="sm">
+                              <FileText className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
             </CardContent>
           </Card>
 
@@ -322,6 +508,10 @@ export function PPIDPage() {
           </Card>
         </div>
       </div>
+<<<<<<< HEAD
     </motion.div>
+=======
+    </div>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
   );
 }

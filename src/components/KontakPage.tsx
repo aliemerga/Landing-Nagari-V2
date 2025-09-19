@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+<<<<<<< HEAD
 import { MapPin, Phone, Mail, Clock, MessageCircle, Facebook, Instagram, MessageSquare, Send, ExternalLink, Navigation, Users, Building2, Globe, Loader2 } from "lucide-react";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
@@ -113,6 +114,12 @@ export function KontakPage() {
 
     fetchSiteSettings();
   }, []);
+=======
+import { MapPin, Phone, Mail, Clock, MessageCircle, Facebook, Instagram, MessageSquare, Send, ExternalLink, Navigation, Users, Building2, Globe } from "lucide-react";
+import { motion } from "motion/react";
+
+export function KontakPage() {
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -151,7 +158,11 @@ export function KontakPage() {
                 <p className="text-green-100">Sampaikan pesan, saran, atau kritik Anda kepada kami</p>
               </CardHeader>
               <CardContent className="p-6">
+<<<<<<< HEAD
                 <form className="space-y-6" onSubmit={handleSubmit}>
+=======
+                <form className="space-y-6">
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <motion.div
                       initial={{ y: 20, opacity: 0 }}
@@ -159,7 +170,11 @@ export function KontakPage() {
                       transition={{ delay: 0.4 }}
                     >
                       <Label htmlFor="nama">Nama Lengkap *</Label>
+<<<<<<< HEAD
                       <Input id="nama" placeholder="Masukkan nama lengkap" className="mt-1" value={formData.nama} onChange={e => handleInputChange('nama', e.target.value)} required />
+=======
+                      <Input id="nama" placeholder="Masukkan nama lengkap" className="mt-1" />
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                     </motion.div>
                     <motion.div
                       initial={{ y: 20, opacity: 0 }}
@@ -167,7 +182,11 @@ export function KontakPage() {
                       transition={{ delay: 0.5 }}
                     >
                       <Label htmlFor="email">Email *</Label>
+<<<<<<< HEAD
                       <Input id="email" type="email" placeholder="email@contoh.com" className="mt-1" value={formData.email} onChange={e => handleInputChange('email', e.target.value)} required />
+=======
+                      <Input id="email" type="email" placeholder="email@contoh.com" className="mt-1" />
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                     </motion.div>
                   </div>
                   
@@ -178,7 +197,11 @@ export function KontakPage() {
                       transition={{ delay: 0.6 }}
                     >
                       <Label htmlFor="telepon">No. Telepon</Label>
+<<<<<<< HEAD
                       <Input id="telepon" placeholder="08xxxxxxxxxx" className="mt-1" value={formData.telepon} onChange={e => handleInputChange('telepon', e.target.value)} />
+=======
+                      <Input id="telepon" placeholder="08xxxxxxxxxx" className="mt-1" />
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                     </motion.div>
                     <motion.div
                       initial={{ y: 20, opacity: 0 }}
@@ -186,7 +209,11 @@ export function KontakPage() {
                       transition={{ delay: 0.7 }}
                     >
                       <Label htmlFor="kategori">Kategori Pesan *</Label>
+<<<<<<< HEAD
                       <Select onValueChange={(value: string) => handleInputChange('kategori', value)} value={formData.kategori}>
+=======
+                      <Select>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                         <SelectTrigger className="mt-1">
                           <SelectValue placeholder="Pilih kategori pesan" />
                         </SelectTrigger>
@@ -208,7 +235,11 @@ export function KontakPage() {
                     transition={{ delay: 0.8 }}
                   >
                     <Label htmlFor="subjek">Subjek *</Label>
+<<<<<<< HEAD
                     <Input id="subjek" placeholder="Subjek pesan" className="mt-1" value={formData.subjek} onChange={e => handleInputChange('subjek', e.target.value)} required />
+=======
+                    <Input id="subjek" placeholder="Subjek pesan" className="mt-1" />
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                   </motion.div>
                   
                   <motion.div
@@ -222,6 +253,7 @@ export function KontakPage() {
                       placeholder="Tulis pesan Anda di sini..." 
                       rows={6}
                       className="mt-1"
+<<<<<<< HEAD
                       value={formData.pesan}
                       onChange={e => handleInputChange('pesan', e.target.value)}
                       required
@@ -234,6 +266,10 @@ export function KontakPage() {
                       {submitStatus.message}
                     </div>
                   )}
+=======
+                    />
+                  </motion.div>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                   
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
@@ -242,6 +278,7 @@ export function KontakPage() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
+<<<<<<< HEAD
                     <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <>
@@ -254,6 +291,11 @@ export function KontakPage() {
                           Kirim Pesan
                         </>
                       )}
+=======
+                    <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                      <Send className="h-4 w-4 mr-2" />
+                      Kirim Pesan
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                     </Button>
                   </motion.div>
                 </form>
@@ -277,6 +319,7 @@ export function KontakPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-6 space-y-6">
+<<<<<<< HEAD
                 {isLoadingSettings ? (
                   // Loading skeleton
                   <div className="space-y-6">
@@ -370,6 +413,65 @@ export function KontakPage() {
                     </motion.div>
                   </>
                 )}
+=======
+                <motion.div 
+                  className="flex items-start group"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <MapPin className="h-5 w-5 text-primary mr-3 mt-1 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Alamat Kantor</h4>
+                    <p className="text-gray-600 leading-relaxed">
+                      Jl. Nagari No. 123<br />
+                      Kec. Contoh, Kab. Contoh<br />
+                      Sumatera Barat 26xxx
+                    </p>
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="flex items-start group"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Phone className="h-5 w-5 text-primary mr-3 mt-1 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Telepon & Fax</h4>
+                    <p className="text-gray-600">Telepon: (0751) 123-456</p>
+                    <p className="text-gray-600">Fax: (0751) 123-457</p>
+                    <p className="text-gray-600">HP: 0812-3456-7890</p>
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="flex items-start group"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Mail className="h-5 w-5 text-primary mr-3 mt-1 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Email</h4>
+                    <p className="text-gray-600">info@nagaricontoh.go.id</p>
+                    <p className="text-gray-600">ppid@nagaricontoh.go.id</p>
+                    <p className="text-gray-600">wali@nagaricontoh.go.id</p>
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="flex items-start group"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Clock className="h-5 w-5 text-primary mr-3 mt-1 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Jam Operasional</h4>
+                    <p className="text-gray-600">Senin - Kamis: 08.00 - 15.30 WIB</p>
+                    <p className="text-gray-600">Jumat: 08.00 - 11.30 WIB</p>
+                    <p className="text-gray-600 text-red-600">Sabtu - Minggu: Tutup</p>
+                  </div>
+                </motion.div>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
               </CardContent>
             </Card>
 
@@ -420,6 +522,7 @@ export function KontakPage() {
                       <Facebook className="h-5 w-5 text-blue-600 mr-3" />
                       <div>
                         <span className="font-medium">Facebook</span>
+<<<<<<< HEAD
                         <p className="text-sm text-gray-600">@{siteSettings?.social_media?.facebook?.split('/').pop() || 'NagariContohOfficial'}</p>
                       </div>
                     </div>
@@ -429,6 +532,15 @@ export function KontakPage() {
                         Kunjungi
                       </Button>
                     </a>
+=======
+                        <p className="text-sm text-gray-600">@NagariContohOfficial</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm" className="border-blue-200">
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      Kunjungi
+                    </Button>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                   </motion.div>
                   
                   <motion.div 
@@ -439,6 +551,7 @@ export function KontakPage() {
                       <Instagram className="h-5 w-5 text-pink-600 mr-3" />
                       <div>
                         <span className="font-medium">Instagram</span>
+<<<<<<< HEAD
                         <p className="text-sm text-gray-600">@{siteSettings?.social_media?.instagram?.split('/').pop() || 'nagari_contoh'}</p>
                       </div>
                     </div>
@@ -448,6 +561,15 @@ export function KontakPage() {
                         Kunjungi
                       </Button>
                     </a>
+=======
+                        <p className="text-sm text-gray-600">@nagari_contoh</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm" className="border-pink-200">
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      Kunjungi
+                    </Button>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                   </motion.div>
                   
                   <motion.div 
@@ -458,6 +580,7 @@ export function KontakPage() {
                       <MessageSquare className="h-5 w-5 text-green-600 mr-3" />
                       <div>
                         <span className="font-medium">WhatsApp</span>
+<<<<<<< HEAD
                         <p className="text-sm text-gray-600">{siteSettings?.contact_info?.mobile || '0812-3456-7890'}</p>
                       </div>
                     </div>
@@ -467,6 +590,15 @@ export function KontakPage() {
                         Chat
                       </Button>
                     </a>
+=======
+                        <p className="text-sm text-gray-600">0812-3456-7890</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm" className="border-green-200">
+                      <MessageSquare className="h-3 w-3 mr-1" />
+                      Chat
+                    </Button>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                   </motion.div>
                 </div>
               </CardContent>
@@ -499,6 +631,7 @@ export function KontakPage() {
                   </motion.div>
                 </div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+<<<<<<< HEAD
                   <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteSettings?.contact_info.address || '')}`} target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" className="w-full">
                       <ExternalLink className="h-4 w-4 mr-2" />
@@ -508,6 +641,16 @@ export function KontakPage() {
                 </motion.div>
                 <div className="mt-4 p-3 bg-blue-50 rounded-lg text-sm text-blue-800">
                   <strong>Petunjuk Arah:</strong> {siteSettings?.contact_info.directions || 'Kantor Nagari Contoh terletak di pusat nagari, sekitar 500m dari Pasar Tradisional Contoh dan mudah dijangkau dengan kendaraan umum.'}
+=======
+                  <Button variant="outline" className="w-full">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Buka di Google Maps
+                  </Button>
+                </motion.div>
+                <div className="mt-4 p-3 bg-blue-50 rounded-lg text-sm text-blue-800">
+                  <strong>Petunjuk Arah:</strong> Kantor Nagari Contoh terletak di pusat nagari, 
+                  sekitar 500m dari Pasar Tradisional Contoh dan mudah dijangkau dengan kendaraan umum.
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                 </div>
               </CardContent>
             </Card>

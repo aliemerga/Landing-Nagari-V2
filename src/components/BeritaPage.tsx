@@ -5,10 +5,16 @@ import { Input } from "./ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "./ui/pagination";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+<<<<<<< HEAD
 import { Calendar, User, Search, Eye, ArrowLeft, TrendingUp, Clock, Star, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { nagariAPI, NewsData, CategoryData } from "../services/nagariApi";
+=======
+import { Calendar, User, Search, Eye, ArrowLeft, TrendingUp, Clock, Star } from "lucide-react";
+import { useState } from "react";
+import { motion } from "motion/react";
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
 
 interface NewsItem {
   id: number;
@@ -23,6 +29,7 @@ interface NewsItem {
   featured: boolean;
 }
 
+<<<<<<< HEAD
 // Convert NewsData from API to NewsItem for component compatibility
 const convertNewsData = (newsData: NewsData): NewsItem => {
   return {
@@ -43,6 +50,8 @@ const convertNewsData = (newsData: NewsData): NewsItem => {
   };
 };
 
+=======
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
 function NewsCard({ news, index, onSelect }: { news: NewsItem; index: number; onSelect: (news: NewsItem) => void }) {
   return (
     <motion.div
@@ -135,6 +144,7 @@ export function BeritaPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState("semua");
+<<<<<<< HEAD
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [categories, setCategories] = useState<CategoryData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -190,6 +200,11 @@ export function BeritaPage() {
 
   // Fallback dummy data - kept for safety in case API fails
   const fallbackNewsData: NewsItem[] = [
+=======
+  const itemsPerPage = 6;
+
+  const newsItems: NewsItem[] = [
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
     {
       id: 1,
       title: "Nagari Contoh Raih Penghargaan Desa Terbaik Se-Kabupaten",
@@ -416,6 +431,7 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
     }
   ];
 
+<<<<<<< HEAD
   // Client-side filtering and sorting
   const newsToDisplay = (() => {
     // 1. Filter by search term first
@@ -451,6 +467,34 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
 
    if (selectedNews) {
      return (
+=======
+  const filteredNews = newsItems.filter(news => {
+    const matchesSearch = news.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      news.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      news.category.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    if (activeTab === "semua") return matchesSearch;
+    if (activeTab === "utama") return news.featured && matchesSearch;
+    if (activeTab === "terbaru") return matchesSearch; // All news are recent
+    if (activeTab === "populer") return news.views > 200 && matchesSearch;
+    
+    return matchesSearch;
+  });
+
+  const featuredNews = newsItems.filter(news => news.featured);
+  const popularNews = newsItems.filter(news => news.views > 200).sort((a, b) => b.views - a.views);
+  const latestNews = [...newsItems].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  // Pagination
+  const totalItems = filteredNews.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentNews = filteredNews.slice(startIndex, endIndex);
+
+  if (selectedNews) {
+    return (
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -578,18 +622,30 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
+<<<<<<< HEAD
                   setCurrentPage(1); // Reset page on new search
+=======
+                  setCurrentPage(1);
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                 }}
                 className="pl-10"
               />
             </div>
           </div>
 
+<<<<<<< HEAD
           <Tabs value={activeTab} onValueChange={(value: string) => {
             setActiveTab(value);
             setCurrentPage(1); // Reset page on tab change
           }} className="w-full">
             <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-4 md:grid-cols-none md:flex md:flex-wrap justify-center">
+=======
+          <Tabs value={activeTab} onValueChange={(value) => {
+            setActiveTab(value);
+            setCurrentPage(1);
+          }} className="w-full">
+            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4">
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
               <TabsTrigger value="semua" className="flex items-center">
                 <Eye className="h-4 w-4 mr-1" />
                 Semua
@@ -606,6 +662,7 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
                 <TrendingUp className="h-4 w-4 mr-1" />
                 Populer
               </TabsTrigger>
+<<<<<<< HEAD
               {categories.map((cat) => (
                 <TabsTrigger key={cat.slug} value={cat.slug} className="flex items-center capitalize">
                   {cat.name}
@@ -679,6 +736,46 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
 
         {/* Pagination: Only show if not loading and there are pages to show */}
         {!loading && totalPages > 1 && (
+=======
+            </TabsList>
+
+            <TabsContent value="semua" className="mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {currentNews.map((news, index) => (
+                  <NewsCard key={news.id} news={news} index={index} onSelect={setSelectedNews} />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="utama" className="mt-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                {featuredNews.slice(0, 2).map((news, index) => (
+                  <FeaturedNewsCard key={news.id} news={news} index={index} onSelect={setSelectedNews} />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="terbaru" className="mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {latestNews.slice(0, 6).map((news, index) => (
+                  <NewsCard key={news.id} news={news} index={index} onSelect={setSelectedNews} />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="populer" className="mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {popularNews.map((news, index) => (
+                  <NewsCard key={news.id} news={news} index={index} onSelect={setSelectedNews} />
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </motion.div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
           <motion.div 
             className="mt-12 flex justify-center"
             initial={{ y: 20, opacity: 0 }}
@@ -688,9 +785,14 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
             <Pagination>
               <PaginationContent>
                 <PaginationItem>
+<<<<<<< HEAD
                   <PaginationPrevious
                     size="default"
                     href="#"
+=======
+                  <PaginationPrevious 
+                    href="#" 
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                     onClick={(e) => {
                       e.preventDefault();
                       if (currentPage > 1) setCurrentPage(currentPage - 1);
@@ -702,7 +804,10 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
                 {[...Array(totalPages)].map((_, i) => (
                   <PaginationItem key={i + 1}>
                     <PaginationLink
+<<<<<<< HEAD
                       size="default"
+=======
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                       href="#"
                       onClick={(e) => {
                         e.preventDefault();
@@ -717,7 +822,10 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
                 
                 <PaginationItem>
                   <PaginationNext 
+<<<<<<< HEAD
                     size="default"
+=======
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                     href="#" 
                     onClick={(e) => {
                       e.preventDefault();
@@ -731,6 +839,7 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
           </motion.div>
         )}
 
+<<<<<<< HEAD
          {/* No Results: Only show if not loading and no news items are available */}
          {!loading && currentNews.length === 0 && (
            <motion.div 
@@ -760,6 +869,36 @@ Pendaftaran dibuka mulai 10 September hingga 25 September 2024. Calon peserta da
            </motion.div>
          )}
 
+=======
+        {/* No Results */}
+        {filteredNews.length === 0 && (
+          <motion.div 
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
+            <div className="max-w-md mx-auto">
+              <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Tidak ada berita ditemukan</h3>
+              <p className="text-gray-500 mb-4">
+                {searchTerm ? `Tidak ada hasil untuk "${searchTerm}"` : "Belum ada berita dalam kategori ini"}
+              </p>
+              {searchTerm && (
+                <Button 
+                  variant="outline" 
+                  onClick={() => {
+                    setSearchTerm("");
+                    setCurrentPage(1);
+                  }}
+                >
+                  Reset Pencarian
+                </Button>
+              )}
+            </div>
+          </motion.div>
+        )}
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
       </div>
     </motion.div>
   );

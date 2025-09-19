@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+<<<<<<< HEAD
 import { Calendar, FileText, MapPin, Phone, Mail, Users, Building2, Scroll, MessageSquare, Loader2 } from "lucide-react";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
@@ -180,6 +181,58 @@ export function HomePage() {
     subtitle: "Melayani dengan transparansi, akuntabilitas, dan responsivitas untuk kemajuan nagari",
     image: "https://images.unsplash.com/photo-1658221016101-19daf2b37f89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRvbmVzaWFuJTIwdmlsbGFnZSUyMGdvdmVybm1lbnQlMjBidWlsZGluZ3xlbnwxfHx8fDE3NTgxNzEwNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
   };
+=======
+import { Calendar, FileText, MapPin, Phone, Mail, Users, Building2, Scroll, MessageSquare } from "lucide-react";
+import { motion } from "motion/react";
+
+export function HomePage() {
+  const announcements = [
+    {
+      id: 1,
+      title: "Pengumuman Pendaftaran Program Bantuan Sosial 2024",
+      date: "15 September 2024",
+      excerpt: "Pendaftaran program bantuan sosial untuk tahun 2024 telah dibuka. Silakan daftar di kantor nagari.",
+      category: "Bantuan Sosial"
+    },
+    {
+      id: 2,
+      title: "Gotong Royong Pembersihan Lingkungan",
+      date: "12 September 2024",
+      excerpt: "Kegiatan gotong royong akan dilaksanakan setiap hari Minggu untuk menjaga kebersihan lingkungan.",
+      category: "Kegiatan"
+    },
+    {
+      id: 3,
+      title: "Sosialisasi Program Desa Digital",
+      date: "10 September 2024",
+      excerpt: "Program digitalisasi layanan desa akan disosialisasikan kepada seluruh warga nagari.",
+      category: "Program"
+    }
+  ];
+
+  const services = [
+    {
+      icon: <FileText className="h-8 w-8" />,
+      title: "Surat Domisili",
+      description: "Layanan pembuatan surat keterangan domisili"
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: "Surat Keterangan",
+      description: "Berbagai jenis surat keterangan"
+    },
+    {
+      icon: <MessageSquare className="h-8 w-8" />,
+      title: "Pengaduan",
+      description: "Layanan pengaduan masyarakat"
+    },
+    {
+      icon: <Building2 className="h-8 w-8" />,
+      title: "Izin Usaha",
+      description: "Pengurusan izin usaha mikro"
+    }
+  ];
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
 
   const galleryImages = [
     "https://images.unsplash.com/photo-1710611228737-57ee0b3586f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aWxsYWdlJTIwYWN0aXZpdGllcyUyMGNvbW11bml0eXxlbnwxfHx8fDE3NTgxNzEwNzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
@@ -202,6 +255,7 @@ export function HomePage() {
         className="relative h-screen bg-gradient-to-r from-primary to-green-700 overflow-hidden"
       >
         <div className="absolute inset-0">
+<<<<<<< HEAD
           {isLoadingBanners ? (
             <div className="w-full h-full bg-gray-300 animate-pulse" />
           ) : (
@@ -211,6 +265,13 @@ export function HomePage() {
               className="w-full h-full object-cover opacity-30"
             />
           )}
+=======
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1658221016101-19daf2b37f89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRvbmVzaWFuJTIwdmlsbGFnZSUyMGdvdmVybm1lbnQlMjBidWlsZGluZ3xlbnwxfHx8fDE3NTgxNzEwNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            alt="Kantor Nagari"
+            className="w-full h-full object-cover opacity-30"
+          />
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <motion.div 
@@ -225,11 +286,15 @@ export function HomePage() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
+<<<<<<< HEAD
               {isLoadingBanners ? (
                 <div className="h-20 bg-white/20 animate-pulse rounded" />
               ) : (
                 currentBanner.title
               )}
+=======
+              Portal Nagari Contoh
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
             </motion.h1>
             <motion.p 
               className="text-xl md:text-2xl mb-8 leading-relaxed"
@@ -237,11 +302,15 @@ export function HomePage() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.6 }}
             >
+<<<<<<< HEAD
               {isLoadingBanners ? (
                 <div className="h-16 bg-white/20 animate-pulse rounded" />
               ) : (
                 currentBanner.subtitle
               )}
+=======
+              Melayani dengan transparansi, akuntabilitas, dan responsivitas untuk kemajuan nagari
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
             </motion.p>
             <motion.div
               initial={{ y: 30, opacity: 0 }}
@@ -406,6 +475,7 @@ export function HomePage() {
             </motion.div>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<<<<<<< HEAD
             {isLoadingAnnouncements ? (
               // Loading skeleton for announcements
               [...Array(3)].map((_, index) => (
@@ -477,6 +547,36 @@ export function HomePage() {
                 </motion.div>
               ))
             )}
+=======
+            {announcements.map((announcement, index) => (
+              <motion.div
+                key={announcement.id}
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="h-full"
+              >
+                <Card className="hover:shadow-lg transition-all duration-300 h-full">
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge variant="secondary">{announcement.category}</Badge>
+                      <span className="text-sm text-gray-500">{announcement.date}</span>
+                    </div>
+                    <CardTitle className="text-lg">{announcement.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 mb-4">{announcement.excerpt}</p>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button variant="outline" size="sm">
+                        Baca Selengkapnya
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
           </div>
         </motion.section>
 
@@ -497,6 +597,7 @@ export function HomePage() {
             <h2 className="text-2xl font-bold text-gray-900">Layanan Unggulan</h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<<<<<<< HEAD
             {isLoadingServices ? (
               [...Array(4)].map((_, index) => (
                 <div key={index} className="h-full">
@@ -543,6 +644,32 @@ export function HomePage() {
                 </motion.div>
               ))
             )}
+=======
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: 60, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 + index * 0.15, duration: 0.6 }}
+                whileHover={{ y: -10, scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Card className="text-center hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
+                  <CardContent className="pt-6">
+                    <motion.div 
+                      className="text-primary mb-4 flex justify-center"
+                      whileHover={{ scale: 1.2, rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      {service.icon}
+                    </motion.div>
+                    <h3 className="font-semibold mb-2">{service.title}</h3>
+                    <p className="text-sm text-gray-600">{service.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
           </div>
         </motion.section>
 

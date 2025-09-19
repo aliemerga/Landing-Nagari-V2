@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+<<<<<<< HEAD
 import { Users, MapPin, Building, Calendar, Loader2, BookOpen, Shield, Eye } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
@@ -151,6 +152,18 @@ export function ProfilPage() {
   const sejarahContent = pageContent ? pageContent.content.replace(/\[VISI\].*?\[\/VISI\]/s, '').replace(/\[MISI\].*?\[\/MISI\]/s, '').trim() : '';
 
 
+=======
+import { Users, MapPin, Building, Calendar } from "lucide-react";
+
+export function ProfilPage() {
+  const demographics = [
+    { label: "Total Penduduk", value: "2,543", icon: <Users className="h-5 w-5" /> },
+    { label: "Jumlah KK", value: "743", icon: <Building className="h-5 w-5" /> },
+    { label: "Luas Wilayah", value: "45.2 km²", icon: <MapPin className="h-5 w-5" /> },
+    { label: "Tahun Pembentukan", value: "1982", icon: <Calendar className="h-5 w-5" /> },
+  ];
+
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -187,6 +200,7 @@ export function ProfilPage() {
                 <CardTitle>Sejarah Nagari</CardTitle>
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {isLoadingPage ? (
                   <div className="space-y-4">
                     <div className="h-4 bg-gray-200 rounded w-full animate-pulse"></div>
@@ -198,6 +212,23 @@ export function ProfilPage() {
                 ) : (
                   <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: sejarahContent.replace(/\n/g, '<br />') }} />
                 )}
+=======
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Nagari Contoh didirikan pada tahun 1982 sebagai hasil pemekaran dari nagari induk. Nama "Contoh" 
+                  diambil dari kata dalam bahasa Minangkabau yang berarti "tempat yang subur". Nagari ini terletak 
+                  di dataran tinggi dengan ketinggian sekitar 800 meter di atas permukaan laut.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Sejarah panjang nagari ini dimulai dari zaman kolonial Belanda, dimana wilayah ini merupakan 
+                  jalur perdagangan penting antara pesisir dan dataran tinggi. Masyarakat nagari sebagian besar 
+                  berprofesi sebagai petani dan pedagang.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Dalam perkembangannya, Nagari Contoh terus mempertahankan nilai-nilai tradisional Minangkabau 
+                  sambil mengikuti perkembangan zaman modern. Sistem pemerintahan nagari yang demokratis dan 
+                  partisipatif menjadi kekuatan utama dalam pembangunan daerah.
+                </p>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
               </CardContent>
             </Card>
 
@@ -206,6 +237,7 @@ export function ProfilPage() {
                 <CardTitle>Visi & Misi</CardTitle>
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {isLoadingPage ? (
                   <div className="space-y-4">
                     <div className="h-6 bg-gray-200 rounded w-1/4 animate-pulse mb-2"></div>
@@ -234,6 +266,40 @@ export function ProfilPage() {
                     </div>
                   </>
                 )}
+=======
+                <div className="mb-6">
+                  <h3 className="font-semibold text-primary mb-3">Visi</h3>
+                  <p className="text-gray-700 italic">
+                    "Terwujudnya Nagari Contoh sebagai nagari yang maju, mandiri, dan sejahtera 
+                    berbasis kearifan lokal dan teknologi modern"
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-primary mb-3">Misi</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Meningkatkan kualitas pelayanan publik yang transparan dan akuntabel
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Mengembangkan potensi ekonomi masyarakat berbasis sumber daya lokal
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Melestarikan nilai-nilai budaya dan tradisi Minangkabau
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Meningkatkan kualitas pendidikan dan kesehatan masyarakat
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Membangun infrastruktur yang mendukung kesejahteraan masyarakat
+                    </li>
+                  </ul>
+                </div>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
               </CardContent>
             </Card>
           </div>
@@ -245,6 +311,7 @@ export function ProfilPage() {
                 <CardTitle>Data Demografi</CardTitle>
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {isLoadingStats ? (
                   <div className="space-y-4">
                     {[...Array(4)].map((_, index) => (
@@ -268,6 +335,21 @@ export function ProfilPage() {
                     ))}
                   </div>
                 )}
+=======
+                <div className="space-y-4">
+                  {demographics.map((item, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center">
+                        <div className="text-primary mr-3">
+                          {item.icon}
+                        </div>
+                        <span className="text-sm text-gray-600">{item.label}</span>
+                      </div>
+                      <span className="font-semibold text-gray-900">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
               </CardContent>
             </Card>
 
@@ -276,6 +358,7 @@ export function ProfilPage() {
                 <CardTitle>Struktur Pemerintahan</CardTitle>
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {isLoadingStaff ? (
                   // Loading skeleton
                   <div className="space-y-4">
@@ -330,6 +413,22 @@ export function ProfilPage() {
                     ))}
                   </div>
                 )}
+=======
+                <div className="space-y-4">
+                  <div className="text-center p-4 bg-primary/10 rounded-lg">
+                    <h4 className="font-semibold text-primary">Wali Nagari</h4>
+                    <p className="text-sm text-gray-600">H. Ahmad Syukri, S.Sos</p>
+                  </div>
+                  <div className="text-center p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-gray-900">Sekretaris Nagari</h4>
+                    <p className="text-sm text-gray-600">Drs. Budi Santoso</p>
+                  </div>
+                  <div className="text-center p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-gray-900">Bendahara</h4>
+                    <p className="text-sm text-gray-600">Siti Aminah, S.E</p>
+                  </div>
+                </div>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
               </CardContent>
             </Card>
           </div>

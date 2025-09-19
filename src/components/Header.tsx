@@ -16,7 +16,10 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
     { key: 'profil', label: 'Profil Desa' },
     { key: 'berita', label: 'Berita' },
     { key: 'layanan', label: 'Layanan' },
+<<<<<<< HEAD
     { key: 'pengaduan', label: 'Pengaduan' },
+=======
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
     { key: 'gis', label: 'Web GIS' },
     { key: 'transparansi', label: 'Transparansi' },
     { key: 'ppid', label: 'PPID' },

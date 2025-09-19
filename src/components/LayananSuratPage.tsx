@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+<<<<<<< HEAD
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { FileText, Clock, CheckCircle, AlertCircle, ArrowLeft, Search, ChevronDown, Loader2 } from "lucide-react";
 import React, { useState } from "react";
@@ -207,6 +208,68 @@ export function LayananSuratPage() {
       service.description.toLowerCase().includes(debouncedSearch)
     );
   }, [debouncedSearch, services]);
+=======
+import { FileText, Clock, CheckCircle, AlertCircle, ArrowLeft } from "lucide-react";
+import { useState } from "react";
+import { motion } from "motion/react";
+
+export function LayananSuratPage() {
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+
+  const services = [
+    {
+      id: "domisili",
+      title: "Surat Keterangan Domisili",
+      description: "Surat yang menyatakan tempat tinggal penduduk",
+      requirements: [
+        "KTP Asli dan Fotocopy",
+        "Kartu Keluarga Asli dan Fotocopy",
+        "Surat Pengantar RT/RW",
+        "Pas Foto 3x4 (2 lembar)"
+      ],
+      processing_time: "1-2 Hari Kerja",
+      fee: "Gratis"
+    },
+    {
+      id: "usaha",
+      title: "Surat Keterangan Usaha",
+      description: "Surat yang menyatakan bahwa seseorang menjalankan usaha",
+      requirements: [
+        "KTP Asli dan Fotocopy",
+        "Kartu Keluarga Asli dan Fotocopy",
+        "Surat Pengantar RT/RW",
+        "Foto tempat usaha"
+      ],
+      processing_time: "2-3 Hari Kerja",
+      fee: "Gratis"
+    },
+    {
+      id: "kehilangan",
+      title: "Surat Keterangan Kehilangan",
+      description: "Surat yang menyatakan kehilangan dokumen atau barang",
+      requirements: [
+        "KTP Asli dan Fotocopy",
+        "Surat Keterangan Kehilangan dari Polsek",
+        "Kronologi kejadian"
+      ],
+      processing_time: "1 Hari Kerja",
+      fee: "Gratis"
+    },
+    {
+      id: "tidak_mampu",
+      title: "Surat Keterangan Tidak Mampu",
+      description: "Surat yang menyatakan kondisi ekonomi kurang mampu",
+      requirements: [
+        "KTP Asli dan Fotocopy",
+        "Kartu Keluarga Asli dan Fotocopy",
+        "Surat Pengantar RT/RW",
+        "Surat Keterangan Penghasilan"
+      ],
+      processing_time: "1-2 Hari Kerja",
+      fee: "Gratis"
+    }
+  ];
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
 
   const selectedServiceData = services.find(s => s.id === selectedService);
 
@@ -215,9 +278,15 @@ export function LayananSuratPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
+<<<<<<< HEAD
       className="w-full min-h-screen bg-gray-50"
     >
       <div className="w-full px-4 sm:px-6 lg:px-8 py-12">
+=======
+      className="min-h-screen bg-gray-50"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
         {/* Header */}
         <motion.div 
           className="text-center mb-12"
@@ -233,7 +302,11 @@ export function LayananSuratPage() {
 
         {/* Form Permohonan dengan Dropdown */}
         <motion.div 
+<<<<<<< HEAD
           className="w-full mx-auto"
+=======
+          className="max-w-4xl mx-auto"
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -247,7 +320,11 @@ export function LayananSuratPage() {
               <p className="text-green-100">Silakan lengkapi form berikut untuk mengajukan permohonan surat</p>
             </CardHeader>
             <CardContent className="p-8">
+<<<<<<< HEAD
               <form className="space-y-6" onSubmit={handleSubmit}>
+=======
+              <form className="space-y-6">
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                 {/* Pilih Jenis Surat */}
                 <motion.div
                   initial={{ x: -20, opacity: 0 }}
@@ -255,6 +332,7 @@ export function LayananSuratPage() {
                   transition={{ delay: 0.4 }}
                 >
                   <Label htmlFor="jenis_surat" className="text-base font-semibold">Jenis Surat yang Diminta *</Label>
+<<<<<<< HEAD
                   
                   {loading && (
                     <div className="w-full h-16 mt-3 flex items-center justify-center border rounded-lg bg-gray-50">
@@ -350,6 +428,23 @@ export function LayananSuratPage() {
                     </PopoverContent>
                   </Popover>
                   )}
+=======
+                  <Select onValueChange={setSelectedService}>
+                    <SelectTrigger className="mt-2 h-12">
+                      <SelectValue placeholder="Pilih jenis surat yang akan diminta" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {services.map((service) => (
+                        <SelectItem key={service.id} value={service.id}>
+                          <div className="flex items-center">
+                            <FileText className="h-4 w-4 mr-2" />
+                            {service.title}
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                 </motion.div>
 
                 {/* Info Surat yang Dipilih */}
@@ -361,13 +456,21 @@ export function LayananSuratPage() {
                     className="bg-blue-50 p-6 rounded-lg border border-blue-200"
                   >
                     <h3 className="font-semibold text-blue-900 mb-2">
+<<<<<<< HEAD
                       {selectedServiceData.name}
+=======
+                      {selectedServiceData.title}
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                     </h3>
                     <p className="text-blue-800 mb-4">{selectedServiceData.description}</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                       <div className="flex items-center text-blue-700">
                         <Clock className="h-4 w-4 mr-2" />
+<<<<<<< HEAD
                         <span>Waktu Proses: {selectedServiceData.estimated_time}</span>
+=======
+                        <span>Waktu Proses: {selectedServiceData.processing_time}</span>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                       </div>
                       <div className="flex items-center text-blue-700">
                         <CheckCircle className="h-4 w-4 mr-2" />
@@ -391,6 +494,7 @@ export function LayananSuratPage() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="nama">Nama Lengkap *</Label>
+<<<<<<< HEAD
                           <Input 
                             id="nama" 
                             placeholder="Masukkan nama lengkap sesuai KTP" 
@@ -411,12 +515,20 @@ export function LayananSuratPage() {
                             maxLength={16}
                             required
                           />
+=======
+                          <Input id="nama" placeholder="Masukkan nama lengkap sesuai KTP" className="mt-1" />
+                        </div>
+                        <div>
+                          <Label htmlFor="nik">NIK *</Label>
+                          <Input id="nik" placeholder="Nomor Induk Kependudukan (16 digit)" className="mt-1" />
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="tempat_lahir">Tempat Lahir *</Label>
+<<<<<<< HEAD
                           <Input 
                             id="tempat_lahir" 
                             placeholder="Tempat lahir" 
@@ -436,16 +548,27 @@ export function LayananSuratPage() {
                             onChange={(e) => handleInputChange('tanggal_lahir', e.target.value)}
                             required
                           />
+=======
+                          <Input id="tempat_lahir" placeholder="Tempat lahir" className="mt-1" />
+                        </div>
+                        <div>
+                          <Label htmlFor="tanggal_lahir">Tanggal Lahir *</Label>
+                          <Input id="tanggal_lahir" type="date" className="mt-1" />
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="jenis_kelamin">Jenis Kelamin *</Label>
+<<<<<<< HEAD
                           <Select 
                             onValueChange={(value: string) => handleInputChange('jenis_kelamin', value)} 
                             value={formData.jenis_kelamin}
                           >
+=======
+                          <Select>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                             <SelectTrigger className="mt-1">
                               <SelectValue placeholder="Pilih jenis kelamin" />
                             </SelectTrigger>
@@ -457,10 +580,14 @@ export function LayananSuratPage() {
                         </div>
                         <div>
                           <Label htmlFor="agama">Agama *</Label>
+<<<<<<< HEAD
                           <Select 
                             onValueChange={(value: string) => handleInputChange('agama', value)}
                             value={formData.agama}
                           >
+=======
+                          <Select>
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                             <SelectTrigger className="mt-1">
                               <SelectValue placeholder="Pilih agama" />
                             </SelectTrigger>
@@ -483,15 +610,19 @@ export function LayananSuratPage() {
                           placeholder="Masukkan alamat lengkap sesuai KTP" 
                           rows={3}
                           className="mt-1"
+<<<<<<< HEAD
                           value={formData.alamat}
                           onChange={(e) => handleInputChange('alamat', e.target.value)}
                           required
+=======
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                         />
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="pekerjaan">Pekerjaan *</Label>
+<<<<<<< HEAD
                           <Input 
                             id="pekerjaan" 
                             placeholder="Pekerjaan/Profesi" 
@@ -511,6 +642,13 @@ export function LayananSuratPage() {
                             onChange={(e) => handleInputChange('no_hp', e.target.value)}
                             required
                           />
+=======
+                          <Input id="pekerjaan" placeholder="Pekerjaan/Profesi" className="mt-1" />
+                        </div>
+                        <div>
+                          <Label htmlFor="no_hp">No. HP *</Label>
+                          <Input id="no_hp" placeholder="Nomor HP aktif" className="mt-1" />
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                         </div>
                       </div>
 
@@ -521,9 +659,12 @@ export function LayananSuratPage() {
                           placeholder="Jelaskan secara detail keperluan surat yang diminta" 
                           rows={3}
                           className="mt-1"
+<<<<<<< HEAD
                           value={formData.keperluan}
                           onChange={(e) => handleInputChange('keperluan', e.target.value)}
                           required
+=======
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                         />
                       </div>
                     </motion.div>
@@ -574,6 +715,7 @@ export function LayananSuratPage() {
                         <Button 
                           type="submit"
                           className="w-full sm:w-auto bg-primary hover:bg-primary/90 px-8"
+<<<<<<< HEAD
                           disabled={submitting}
                         >
                           {submitting ? (
@@ -587,6 +729,11 @@ export function LayananSuratPage() {
                               Ajukan Permohonan
                             </>
                           )}
+=======
+                        >
+                          <FileText className="h-4 w-4 mr-2" />
+                          Ajukan Permohonan
+>>>>>>> cb6ee74f0eb4b3af67be707269afe6cbf94a7ebe
                         </Button>
                       </motion.div>
                     </motion.div>
